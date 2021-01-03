@@ -18,7 +18,7 @@ https://repl.it/@bilgrami/award-certificate-maker#README.md
 1) Add a base image under images folder
 2) add names in the data/names.csv
 3) review config.json file
-4) click on run button. Note that existing JPG images inside output folder will be deleted.
+4) click on run button. CAUTION: All existing JPG images inside output folder will be deleted.
 5) Review Output image files
 
 ## Config file 
