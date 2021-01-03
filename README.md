@@ -11,7 +11,7 @@ This python repo created award certificates for students as JPEG image.
 ## How to run
 Visit the folowing repl
 
-https://repl.it/@bilgrami/make-award-certificate#README.md
+https://repl.it/@bilgrami/award-certificate-maker#README.md
 
 **Steps**
 
