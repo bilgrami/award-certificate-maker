@@ -1,0 +1,76 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "Schema of make-award-certificate operation",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "BackgroundImageFileLocation": "images/BalighaCertificate.jpg",
+            "OutputFolderLocation": "output",
+            "OutputFilePrefix": "cert-",
+            "FontName": "FreeMono.ttf",
+            "DataFileLocation": "data/names.csv"
+        }
+    ],
+    "required": [
+        "BackgroundImageFileLocation",
+        "DataFileLocation",
+        "OutputFolderLocation",
+        "OutputFilePrefix"
+    ],
+    "properties": {
+        "BackgroundImageFileLocation": {
+            "$id": "#/properties/BackgroundImageFileLocation",
+            "type": "string",
+            "title": "The BackgroundImageFileLocation schema",
+            "description": "Path to the image file used as certificate background",
+            "default": "",
+            "examples": [
+                "images/BalighaCertificate.jpg"
+            ]
+        },
+        "DataFileLocation": {
+            "$id": "#/properties/DataFileLocation",
+            "type": "string",
+            "title": "The DataFileLocation schema",
+            "description": "Path to the Csv file containing Names and Certificate date of the students",
+            "default": "",
+            "examples": [
+                "data/names.csv"
+            ]
+        },
+         "OutputFolderLocation": {
+            "$id": "#/properties/OutputFolderLocation",
+            "type": "string",
+            "title": "The OutputFolderLocation schema",
+            "description": "Path to the output folder location",
+            "default": "output",
+            "examples": [
+                "output"
+            ]
+        },
+       "OutputFilePrefix": {
+            "$id": "#/properties/OutputFilePrefix",
+            "type": "string",
+            "title": "The OutputFilePrefix schema",
+            "description": "Prefix to the output image file name.",
+            "default": "1==0",
+            "examples": [
+                "cert-"
+            ]
+        },
+        "FontName": {
+            "$id": "#/properties/FontName",
+            "type": "string",
+            "title": "The FontName schema",
+            "description": "Font name",
+            "default": "",
+            "examples": [
+                "FreeMono.ttf"
+            ]
+        }
+    },
+    "additionalProperties": false
+}
