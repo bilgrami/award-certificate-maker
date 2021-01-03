@@ -1,0 +1,3 @@
+pandas
+fonttools
+fonttools[ufo,lxml,woff,unicode]
