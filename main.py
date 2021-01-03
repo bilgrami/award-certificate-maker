@@ -4,6 +4,15 @@ import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 from json_helper import JsonFileHelper
 
+NAME_X = 660
+NAME_Y = 524
+DATE_X = 560
+DATE_Y = 1422
+
+# --------------------------------------------
+#          No changes beyond this point 
+# --------------------------------------------
+ROOT_OUTPUT_FOLDER = "output"
 
 class CertMakerConfig:
     _jsonConfig = {}
@@ -38,6 +47,10 @@ class CertMaker:
 
         self.config = config
 
+    def make_folders(self, directory):
+        if not os.path.exists(directory):
+            os.makedirs(directory)        
+
     def clear_folder_contents(self, folder_name, file_extension = ".jpg"):
         for f in os.listdir(folder_name):
             if not f.endswith(file_extension):
@@ -49,37 +62,42 @@ class CertMaker:
         d1 = ImageDraw.Draw(img)
 
         myFont = ImageFont.truetype(self.config.font_name, 7+86)
-        name_x = 786-14-5-4-3-2-1
-        name_y = 555-14-5-4-3-2-1
-        dt_x = 786-14-5-4-3-2-1
-        dt_y = 1555-140-5-4-3-2-1
-
-        d1.text((name_x, name_y), name, font=myFont, fill =(0, 0, 0))
-        d1.text((dt_x, dt_y), dt, font=myFont, fill =(0, 0, 0))
+        d1.text((NAME_X, NAME_Y), name, font=myFont, fill =(0, 0, 0))
+        d1.text((DATE_X, DATE_Y), dt, font=myFont, fill =(0, 0, 0))
         # img.show()
-        output_file_name = f"{self.config.output_file_prefix}{name}.jpg"
-        img.save(f"{config.output_folder_location}/{output_file_name}")
-        return output_file_name
+        file_name = name.lower().replace(" ", "-")
+        output_file_path = os.path.join(ROOT_OUTPUT_FOLDER, config.output_folder_location, f"{self.config.output_file_prefix}{file_name}.jpg")
+        img.save(output_file_path)
+        return output_file_path
 
     def generate_certs(self):
         df = pd.read_csv(self.config.data_file_location)
         for index, row in df.iterrows():
-            output_file_path = self.write_text_on_image(row['name'].lower().replace(" ", "-"), row['date'])
-            print("[" + row['name'] + "] cert generated at: ", output_file_path)
+            output_file_path = self.write_text_on_image(row['name'], row['date'])
+            print("\t[" + row['name'] + "] certificate generated at: ", output_file_path)
+        return df['name'].count()
 
     def get_config_json(config_file_path, config_schema_file_path):
         return config_json, config_schema_json
 
 if __name__ == "__main__": 
-    print("\n\n>>>>> START OF Cert Maker <<<<<\n\n");
+    print("\n>>>>> START of Award Certificate Maker <<<<<\n");
     config_json = JsonFileHelper.GetJsonFromFile('config.json')
     config_schema_json = JsonFileHelper.GetJsonFromFile('config_schema.json')
     config = CertMakerConfig(config_json, config_schema_json)
     cert_maker = CertMaker(config)
-    print(f"removing files at folder [{config.output_folder_location}]");
-    cert_maker.clear_folder_contents(config.output_folder_location)
-    print("Generating certificates ..");
-    cert_maker.generate_certs()
+    output_folder_name = os.path.join(ROOT_OUTPUT_FOLDER, config.output_folder_location)
+    if os.path.exists(output_folder_name):
+        print(f"Removing JPG files at folder [{output_folder_name}]..", end="")
+        cert_maker.clear_folder_contents(output_folder_name)
+    else:
+        print(f"Creating output folder at[{output_folder_name}]..", end="")
+        cert_maker.make_folders(output_folder_name)
 
-    print("\n\n>>>>> END OF Cert Maker <<<<<\n\n");
+    print("done!")
+    print("Generating certificates ..");
+    total_certs = cert_maker.generate_certs()
+    print(f"done! Generated a total of {total_certs} certificates")
+
+    print("\n>>>>> END of Award Certificate Maker <<<<<\n");
 

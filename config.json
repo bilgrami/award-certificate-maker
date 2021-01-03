@@ -1,7 +1,7 @@
 {
     "DataFileLocation": "data/names.csv",
     "BackgroundImageFileLocation": "images/BalighaCertificate.jpg",
-    "OutputFolderLocation": "output",
+    "OutputFolderLocation": "saba/class-of-2021",
     "OutputFilePrefix": "cert-",
     "FontName": "FreeMono.ttf"
 }
