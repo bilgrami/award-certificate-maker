@@ -1,7 +1,7 @@
 # award-certificate-maker
 
 ## About
-This python repo created award certificates for students as JPEG image. 
+Use this Python repo to create award certificates for students in bulk. 
 
 ## What we need
 - A background image 
@@ -9,17 +9,18 @@ This python repo created award certificates for students as JPEG image.
 
 ---
 ## How to run
+
 Visit the folowing repl
 
 https://repl.it/@bilgrami/award-certificate-maker#README.md
 
 **Steps**
 
-1) Add a base image under images folder
-2) add names in the data/names.csv
-3) review config.json file
-4) click on run button. CAUTION: All existing JPG images inside output folder will be deleted.
-5) Review Output image files
+1) Upload your award certificate background image to images folder
+2) Edit names in the data/names.csv
+3) Update and review config.json file
+4) Click on run button. CAUTION: All existing JPG images inside output folder will be deleted.
+5) Review Output image files for each student. If you think the position is off, you can tweat the x,y position inside main.py
 
 ## Config file 
 
@@ -32,8 +33,6 @@ https://repl.it/@bilgrami/award-certificate-maker#README.md
     "FontName": "FreeMono.ttf"
 }
 ```
-
-You can tweak the x,y position inside main.py
 
 ### Data file 
 
