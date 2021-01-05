@@ -2,6 +2,6 @@
     "DataFileLocation": "data/names.csv",
     "BackgroundImageFileLocation": "images/BalighaCertificate.jpg",
     "OutputFolderLocation": "saba/class-of-2021",
-    "OutputFilePrefix": "cert-",
-    "FontName": "FreeMono.ttf"
+    "OutputFilePrefix": "certificate-",
+    "FontName": "fonts/Olde English/Olde English Regular.ttf"    
 }

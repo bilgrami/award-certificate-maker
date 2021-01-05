@@ -4,15 +4,11 @@ import pandas as pd
 from PIL import Image, ImageDraw, ImageFont
 from json_helper import JsonFileHelper
 
-NAME_X = 660
-NAME_Y = 524
-DATE_X = 560
-DATE_Y = 1422
 
+ROOT_OUTPUT_FOLDER = "output"
 # --------------------------------------------
 #          No changes beyond this point 
 # --------------------------------------------
-ROOT_OUTPUT_FOLDER = "output"
 
 class CertMakerConfig:
     _jsonConfig = {}
@@ -59,14 +55,19 @@ class CertMaker:
 
     def write_text_on_image(self, name, dt):
         img = Image.open(self.config.background_image_file_location)
+        width, height = img.size
+        NAME_X = (width - (len(name)*55)) / 2 
+        NAME_Y = 500
+        DATE_X = (width - (len(dt)*40)) / 2 
+        DATE_Y = 1422
         d1 = ImageDraw.Draw(img)
-
-        myFont = ImageFont.truetype(self.config.font_name, 7+86)
-        d1.text((NAME_X, NAME_Y), name, font=myFont, fill =(0, 0, 0))
-        d1.text((DATE_X, DATE_Y), dt, font=myFont, fill =(0, 0, 0))
+        name_Font = ImageFont.truetype(self.config.font_name, 150)
+        date_Font = ImageFont.truetype(self.config.font_name, 100)
+        d1.text((NAME_X, NAME_Y), name, font=name_Font, fill =(0, 0, 0))
+        d1.text((DATE_X, DATE_Y), dt, font=date_Font, fill =(0, 0, 0))
         # img.show()
         file_name = name.lower().replace(" ", "-")
-        output_file_path = os.path.join(ROOT_OUTPUT_FOLDER, config.output_folder_location, f"{self.config.output_file_prefix}{file_name}.jpg")
+        output_file_path = os.path.join(ROOT_OUTPUT_FOLDER, config.output_folder_location, f"{self.config.output_file_prefix}[{dt}]-[{file_name}].jpg")
         img.save(output_file_path)
         return output_file_path
 
