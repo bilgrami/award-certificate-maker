@@ -46,7 +46,7 @@ Output folder is located at ```./output/{OutputFolderLocation}```, where ```{Out
 
 ### Output filename
 
-Output file is named as  ```{OutputFilePrefix}{name}```, where ```{OutputFilePrefix}``` is the prefix name specified in [config.json](config.json), while ```{name}``` is the name of student specified under name column inside [data/names.csv](data/names.csv).
+Output file is named as  ```{OutputFilePrefix}[{dt}]-[{name}]```, where ```{OutputFilePrefix}``` is the prefix name specified in [config.json](config.json), while ```{name}``` and ```{dt}``` values are specified inside [data/names.csv](data/names.csv).
 
 ---
 
@@ -88,4 +88,4 @@ python3 main.py
 
 A separate certificate JPG file gets generated for each student under the output folder.
 
-![background image](public/images/cert-carbonated-sugar.jpg)
+![background image](public/images/certificate-[March-17th-1969]-[allama-mahboobeh].jpg)
