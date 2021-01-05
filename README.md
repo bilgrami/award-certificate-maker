@@ -29,9 +29,9 @@ Follow below **Steps**
 
 5) Review Generated certificate
 
-   Review Output certificate image. You can tweak the x,y positions for the name, date inside the image. Edit [main.py](main.py) and change the following variables on top
+   Review Output certificate image. You can tweak the x,y positions for the name, date inside the image. Edit [main.py](main.py) and change the following variables
 
-      - NAME_X 
+      - NAME_X
       - NAME_Y
       - DATE_X
       - DATE_Y
