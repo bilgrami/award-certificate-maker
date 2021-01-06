@@ -3,5 +3,6 @@
     "BackgroundImageFileLocation": "images/BalighaCertificate.jpg",
     "OutputFolderLocation": "saba/class-of-2021",
     "OutputFilePrefix": "certificate-",
-    "FontName": "fonts/Olde English/Olde English Regular.ttf"    
+    "NameFontName": "fonts/precious/Precious.ttf",
+    "DateFontName": "FreeMono.ttf"
 }

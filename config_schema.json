@@ -10,15 +10,18 @@
             "BackgroundImageFileLocation": "images/BalighaCertificate.jpg",
             "OutputFolderLocation": "output",
             "OutputFilePrefix": "cert-",
-            "FontName": "FreeMono.ttf",
-            "DataFileLocation": "data/names.csv"
+            "DataFileLocation": "data/names.csv",
+            "NameFontName": "FreeMono.ttf",
+            "DateFontName": "FreeMono.ttf"
         }
     ],
     "required": [
         "BackgroundImageFileLocation",
         "DataFileLocation",
         "OutputFolderLocation",
-        "OutputFilePrefix"
+        "OutputFilePrefix",
+        "NameFontName",
+        "DateFontName"
     ],
     "properties": {
         "BackgroundImageFileLocation": {
@@ -61,16 +64,26 @@
                 "cert-"
             ]
         },
-        "FontName": {
-            "$id": "#/properties/FontName",
+        "NameFontName": {
+            "$id": "#/properties/NameFontName",
             "type": "string",
-            "title": "The FontName schema",
-            "description": "Font name",
+            "title": "The Name FontName schema",
+            "description": "Name Font name",
+            "default": "",
+            "examples": [
+                "FreeMono.ttf"
+            ]
+        },
+        "DateFontName": {
+            "$id": "#/properties/DateFontName",
+            "type": "string",
+            "title": "The Date FontName schema",
+            "description": "Date Font name",
             "default": "",
             "examples": [
                 "FreeMono.ttf"
             ]
         }
     },
-    "additionalProperties": false
+    "additionalProperties": true
 }

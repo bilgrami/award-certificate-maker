@@ -17,7 +17,8 @@ class CertMakerConfig:
     background_image_file_location = None
     output_folder_location = None
     output_file_prefix = None
-    font_name = None
+    name_font_name = None
+    date_font_name = None
 
     def __init__(self, json_config, schema_json_config):
         self._jsonConfig = json_config
@@ -32,7 +33,8 @@ class CertMakerConfig:
             self.background_image_file_location = config["BackgroundImageFileLocation"]
             self.output_folder_location = config["OutputFolderLocation"]
             self.output_file_prefix = config["OutputFilePrefix"]
-            self.font_name = config["FontName"]
+            self.name_font_name = config["NameFontName"]
+            self.date_font_name = config["DateFontName"]
         else:
             raise Exception(f"Config is either missing or invalid. \nErrorMessage:\n{err.message}")
 
@@ -58,11 +60,11 @@ class CertMaker:
         width, height = img.size
         NAME_X = (width - (len(name)*55)) / 2 
         NAME_Y = 500
-        DATE_X = (width - (len(dt)*40)) / 2 
-        DATE_Y = 1422
+        DATE_X = (width - (len(dt)*50)) / 2 
+        DATE_Y = 1420 # 1422
         d1 = ImageDraw.Draw(img)
-        name_Font = ImageFont.truetype(self.config.font_name, 150)
-        date_Font = ImageFont.truetype(self.config.font_name, 100)
+        name_Font = ImageFont.truetype(self.config.name_font_name, 110)
+        date_Font = ImageFont.truetype(self.config.date_font_name, 70)
         d1.text((NAME_X, NAME_Y), name, font=name_Font, fill =(0, 0, 0))
         d1.text((DATE_X, DATE_Y), dt, font=date_Font, fill =(0, 0, 0))
         # img.show()
