@@ -61,10 +61,10 @@ class CertMaker:
         NAME_X = (width - (len(name)*55)) / 2 
         NAME_Y = 500
         DATE_X = (width - (len(dt)*50)) / 2 
-        DATE_Y = 1420 # 1422
+        DATE_Y = 1430
         d1 = ImageDraw.Draw(img)
         name_Font = ImageFont.truetype(self.config.name_font_name, 110)
-        date_Font = ImageFont.truetype(self.config.date_font_name, 70)
+        date_Font = ImageFont.truetype(self.config.date_font_name, 76)
         d1.text((NAME_X, NAME_Y), name, font=name_Font, fill =(0, 0, 0))
         d1.text((DATE_X, DATE_Y), dt, font=date_Font, fill =(0, 0, 0))
         # img.show()
