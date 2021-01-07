@@ -4,5 +4,5 @@
     "OutputFolderLocation": "saba/class-of-2021",
     "OutputFilePrefix": "certificate-",
     "NameFontName": "fonts/precious/Precious.ttf",
-    "DateFontName": "FreeMono.ttf"
+    "DateFontName": "fonts/freemono-cufonfonts/FreeMonoBold.ttf"
 }

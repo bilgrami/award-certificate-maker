@@ -7,7 +7,7 @@ from json_helper import JsonFileHelper
 
 ROOT_OUTPUT_FOLDER = "output"
 # --------------------------------------------
-#          No changes beyond this point 
+#          No changes beyond this point
 # --------------------------------------------
 
 class CertMakerConfig:
@@ -60,16 +60,18 @@ class CertMaker:
         width, height = img.size
         NAME_X = (width - (len(name)*55)) / 2 
         NAME_Y = 500
-        DATE_X = (width - (len(dt)*50)) / 2 
-        DATE_Y = 1430
+        DATE_X = (width - (len(dt)*35)) / 2 
+        DATE_Y = 1445
         d1 = ImageDraw.Draw(img)
         name_Font = ImageFont.truetype(self.config.name_font_name, 110)
-        date_Font = ImageFont.truetype(self.config.date_font_name, 76)
+        date_Font = ImageFont.truetype(self.config.date_font_name, 60)
         d1.text((NAME_X, NAME_Y), name, font=name_Font, fill =(0, 0, 0))
+        d1.text((NAME_X+1, NAME_Y+1), name, font=name_Font, fill =(0, 0, 0))
+        d1.text((NAME_X-1, NAME_Y-1), name, font=name_Font, fill =(0, 0, 0))
         d1.text((DATE_X, DATE_Y), dt, font=date_Font, fill =(0, 0, 0))
         # img.show()
-        file_name = name.lower().replace(" ", "-")
-        output_file_path = os.path.join(ROOT_OUTPUT_FOLDER, config.output_folder_location, f"{self.config.output_file_prefix}[{dt}]-[{file_name}].jpg")
+        file_name = f"{self.config.output_file_prefix}[{dt}]-[{name}].jpg".lower().replace(" ", "-")
+        output_file_path = os.path.join(ROOT_OUTPUT_FOLDER, config.output_folder_location, file_name)
         img.save(output_file_path)
         return output_file_path
 
