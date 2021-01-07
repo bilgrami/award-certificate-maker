@@ -8,13 +8,38 @@ All you need is
 
 - A background image
 - A list of students (name, cert date) in CSV format
-- Run the code online or locally (by cloning this repo)
-- Setup/Review the configuration file
 - Run the code
 
 Continue reading the following sections to learn further details about the above steps.
 
 ---
+
+## Run the program
+
+You can run the code online by visiting [here](https://repl.it/@bilgrami/award-certificate-maker#README.md).
+
+Alternatively, you can clone this repo and run it locally via the following command.
+
+```base
+git clone https://github.com/bilgrami/award-certificate-maker.git
+pip3 install -r requirements.txt 
+python3 main.py
+```
+
+## Quick-Start Instructions
+
+Follow below **Steps**
+
+1) Add/Update student names inside [data/names.csv](data/names.csv)
+2) Run the code
+
+---
+
+## Generated Certificate
+
+A separate certificate JPG file gets generated for each student under the output folder.
+
+![background image](public/images/certificate-[march-17th-1969]-[allama-mahboobeh].jpg)
 
 ## Detailed Instructions
 
@@ -68,24 +93,28 @@ Output file is named as  ```{OutputFilePrefix}[{dt}]-[{name}]```, where ```{Outp
 
 ---
 
-## Run the program
-
-You can run the code online by visiting [here](https://repl.it/@bilgrami/award-certificate-maker#README.md).
-
-Alternatively, you can clone this repo and run it locally via the following command.
-
-```base
-git clone https://github.com/bilgrami/award-certificate-maker.git
-pip3 install -r requirements.txt 
-python3 main.py
-```
-
 ## Shell-Output
 
-![background image](public/images/shell-output.png)
+```shell
 
-## Generated Certificate
+>>>>> START of Award Certificate Maker <<<<<
 
-A separate certificate JPG file gets generated for each student under the output folder.
+Removing JPG files at folder [output/saba/class-of-2021]..done!
+Generating certificates ..
+        [Fancy Fungus] certificate generated at:  output/saba/class-of-2021/certificate-[14th-january-2020]-[fancy-fungus].jpg
+        [Underground Labrat] certificate generated at:  output/saba/class-of-2021/certificate-[feb-2020]-[underground-labrat].jpg
+        [Allama Mahboobeh] certificate generated at:  output/saba/class-of-2021/certificate-[march-17th-1969]-[allama-mahboobeh].jpg
+        [Wood wide web] certificate generated at:  output/saba/class-of-2021/certificate-[april-2021]-[wood-wide-web].jpg
+        [Chew Kok Long] certificate generated at:  output/saba/class-of-2021/certificate-[may-2021]-[chew-kok-long].jpg
+        [Sam Sung] certificate generated at:  output/saba/class-of-2021/certificate-[june-2021]-[sam-sung].jpg
+        [Saad Butt] certificate generated at:  output/saba/class-of-2021/certificate-[25-july-2022]-[saad-butt].jpg
+        [Jed I Knight] certificate generated at:  output/saba/class-of-2021/certificate-[august-1969]-[jed-i-knight].jpg
+        [Dr. Joelle Rollo-Koster] certificate generated at:  output/saba/class-of-2021/certificate-[ocotober-2020]-[dr.-joelle-rollo-koster].jpg
+        [Dr. Faartz] certificate generated at:  output/saba/class-of-2021/certificate-[november-1999]-[dr.-faartz].jpg
+        [Mister Love] certificate generated at:  output/saba/class-of-2021/certificate-[december-2000]-[mister-love].jpg
+        [Janice Keihanaikuakahihuliheekahaunaele] certificate generated at:  output/saba/class-of-2021/certificate-[1st-january-1]-[janice-keihanaikuakahihuliheekahaunaele].jpg
+done! Generated a total of 12 certificates
 
-![background image](public/images/certificate-[March-17th-1969]-[allama-mahboobeh].jpg)
+>>>>> END of Award Certificate Maker <<<<<
+
+```
